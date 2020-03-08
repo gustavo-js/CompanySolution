@@ -11,6 +11,6 @@ namespace CompanySolution.Service.Services
     {
         public CompanyService(IRepository<Company> repository) : base(repository)
         {
-        }
+        }      
     }
 }

@@ -7,7 +7,7 @@ namespace CompanySolution.Domain.Entites
 {
     public class Company : EntityBase
     {
-        public string FederatedUnit { get; set; }
+        public FederatedUnits FederatedUnit { get; set; }
         public string TradingName { get; set; }
         public string CNPJ { get; set; }
     }

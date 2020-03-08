@@ -18,7 +18,7 @@ namespace CompanySolution.Infra.Data.Repository.Base
             _dbContext = dbContext;
         }
 
-        public TEntity Create(TEntity entity)
+        public virtual TEntity Create(TEntity entity)
         {
             entity.CreatedAt = DateTime.UtcNow;
             entity.Active = true;
@@ -46,7 +46,7 @@ namespace CompanySolution.Infra.Data.Repository.Base
         }
 
 
-        public TEntity GetById(long id) 
+        public virtual TEntity GetById(long id) 
         {
             return _dbContext.Set<TEntity>().Find(id);
         }

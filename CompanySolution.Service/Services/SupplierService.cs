@@ -9,8 +9,20 @@ namespace CompanySolution.Service.Services
 {
     public class SupplierService : BaseService<Supplier>
     {
-        public SupplierService(IRepository<Supplier> repository) : base(repository)
+        private readonly IRepository<Company> _companyRepository;
+        public SupplierService(IRepository<Supplier> repository, IRepository<Company> companyRepository) : base(repository)
         {
+            _companyRepository = companyRepository;
+        }
+        public override Supplier Post<V>(Supplier entity)
+        {
+            entity.Company = _companyRepository.GetById(entity.CompanyId);
+            return base.Post<V>(entity);
+        }
+        public override Supplier Put<V>(Supplier entity)
+        {
+            entity.Company = _companyRepository.GetById(entity.CompanyId);
+            return base.Post<V>(entity);
         }
     }
 }

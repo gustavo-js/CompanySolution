@@ -18,14 +18,14 @@ namespace CompanySolution.Service.Services.Base
             this._repository = repository;
         }
 
-        public T Post<V>(T entity) where V : AbstractValidator<T>
+        public virtual T Post<V>(T entity) where V : AbstractValidator<T>
         {
             Validate(entity, Activator.CreateInstance<V>());
 
             return _repository.Create(entity);
         }
 
-        public T Put<V>(T entity) where V : AbstractValidator<T>
+        public virtual T Put<V>(T entity) where V : AbstractValidator<T>
         {
             Validate(entity, Activator.CreateInstance<V>());
 

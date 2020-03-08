@@ -14,7 +14,6 @@ namespace CompanySolution.Domain.Entites
         public string CNPJ { get; set; }
         public string RG { get; set; }
         public DateTime BirthDate { get; set; }
-        public Phone Phone { get; set; }
-        public long PhoneId { get; set; }
+        public bool IsNaturalPerson { get; set; }
     }
 }

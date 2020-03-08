@@ -53,8 +53,6 @@ namespace CompanySolution.Core.Controllers
                 supplier.CompanyId = supplierModel.CompanyId;
                 supplier.CNPJ = supplierModel.CNPJ;
                 supplier.CPF = supplierModel.CPF;
-                supplier.Phone = supplierModel.Phone;
-                supplier.PhoneId = supplierModel.PhoneId;
                 supplier.BirthDate = supplierModel.BirthDate;
                 supplier.Name = supplierModel.Name;
 
