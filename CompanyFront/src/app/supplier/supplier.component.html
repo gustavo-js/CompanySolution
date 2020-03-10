@@ -1,0 +1,124 @@
+<div class="container mt-5">
+    <div class="table-wrapper">
+        <div class="table-title">
+            <div class="row">
+                <div class="col-sm-8">
+                    <h2><b>Fornecedores</b></h2>
+                </div>
+                <div class="col-sm-4">
+                    <button type="button" class="btn btn-success add-new" (click)="openModal(novo)">Novo</button>
+                </div>
+            </div>
+        </div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Pessoa Física</th>
+                    <th>Nome</th>
+                    <th>CPF</th>
+                    <th>CNPJ</th>
+                    <th>RG</th>
+                    <th>Nascimento</th>
+                    <th>Empresa</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>x</td>
+                    <td>Joselito fornecedor</td>
+                    <td>15390586987</td>
+                    <td>65165165111</td>
+                    <td>05605616511</td>
+                    <td>15/10/2022</td>
+                    <td>John Doe alimentos</td>
+                    <td>
+                        <button type="button" class="btn btn-sm btn-primary"
+                        (click)="openModal(excluir)">Contato</button>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-sm btn-warning" (click)="openModal(editar)">Editar</button>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-sm btn-danger"
+                        (click)="openModal(excluir)">Excluir</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<ng-template #excluir>
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">Confirmação</h5>
+            <button type="button" class="close" (click)="modalRef.hide()">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            Tem certeza que deseja excluir esse registro?
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger">Excluir</button>
+            <button type="button" class="btn btn-secondary" (click)="modalRef.hide()">Cancelar</button>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #editar>
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">Edição</h5>
+            <button type="button" class="close" (click)="modalRef.hide()">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <form>
+                <div class="form-group">
+                    <label for="recipient-name" class="col-form-label">Recipient:</label>
+                    <input type="text" class="form-control" id="recipient-name">
+                </div>
+                <div class="form-group">
+                    <label for="message-text" class="col-form-label">Message:</label>
+                    <textarea class="form-control" id="message-text"></textarea>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-success">Finalizar edição</button>
+            <button type="button" class="btn btn-secondary" (click)="modalRef.hide()">Cancelar</button>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #novo>
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">Criar</h5>
+            <button type="button" class="close" (click)="modalRef.hide()">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <form>
+                <div class="form-group">
+                    <label for="recipient-name" class="col-form-label">Recipient:</label>
+                    <input type="text" class="form-control" id="recipient-name">
+                </div>
+                <div class="form-group">
+                    <label for="message-text" class="col-form-label">Message:</label>
+                    <textarea class="form-control" id="message-text"></textarea>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-success">Finalizar criação</button>
+            <button type="button" class="btn btn-secondary" (click)="modalRef.hide()">Cancelar</button>
+        </div>
+    </div>
+</ng-template>

@@ -1,0 +1,115 @@
+<div class="container mt-5">
+    <div class="table-wrapper">
+        <div class="table-title">
+            <div class="row">
+                <div class="col-sm-8">
+                    <h2><b>Empresas</b></h2>
+                </div>
+                <div class="col-sm-4">
+                    <button type="button" class="btn btn-success add-new" (click)="openModal(novo)">Novo</button>
+                </div>
+            </div>
+        </div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Unidade Federativa</th>
+                    <th>Nome Fantasia</th>
+                    <th>CNPJ</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>John Doe</td>
+                    <td>Administration</td>
+                    <td>(171) 555-2222</td>
+                    <td>
+                        <button type="button" class="btn btn-sm btn-warning" (click)="openModal(editar)">Editar</button>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-sm btn-danger"
+                        (click)="openModal(excluir)">Excluir</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<ng-template #excluir>
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">Confirmação</h5>
+            <button type="button" class="close" (click)="modalRef.hide()">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            Tem certeza que deseja excluir esse registro?
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger">Excluir</button>
+            <button type="button" class="btn btn-secondary" (click)="modalRef.hide()">Cancelar</button>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #editar>
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">Editar</h5>
+            <button type="button" class="close" (click)="modalRef.hide()">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <form>
+                <div class="form-group">
+                    <label for="recipient-name" class="col-form-label">Recipient:</label>
+                    <input type="text" class="form-control" id="recipient-name">
+                </div>
+                <div class="form-group">
+                    <label for="message-text" class="col-form-label">Message:</label>
+                    <textarea class="form-control" id="message-text"></textarea>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-success">Finalizar edição</button>
+            <button type="button" class="btn btn-secondary" (click)="modalRef.hide()">Cancelar</button>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #novo>
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">Criar</h5>
+            <button type="button" class="close" (click)="modalRef.hide()">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <form>
+                <div class="form-group">
+                    <label for="recipient-name" class="col-form-label">Recipient:</label>
+                    <input type="text" class="form-control" id="recipient-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="nomeFantasia" class="col-form-label">Nome Fantasia:</label>
+                    <input type="text" class="form-control" id="nomeFantasia" required>
+                </div>
+                <div class="form-group">
+                    <label for="cnpj" class="col-form-label">CNPJ:</label>
+                    <input ng-pattern="([0-9]{2}[\.]?[0-9]{3}[\.]?[0-9]{3}[\/]?[0-9]{4}[-]?[0-9]{2})|([0-9]{3}[\.]?[0-9]{3}[\.]?[0-9]{3}[-]?[0-9]{2})" type="text" class="form-control" id="cnpj" required>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-success">Finalizar criação</button>
+            <button type="button" class="btn btn-secondary" (click)="modalRef.hide()">Cancelar</button>
+        </div>
+    </div>
+</ng-template>
