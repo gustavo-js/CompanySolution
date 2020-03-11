@@ -36,7 +36,7 @@ namespace CompanySolution.Service.Services.Base
         public void Delete(long id)
         {
             if (id == 0)
-                throw new ArgumentException("erro delete");
+                throw new ArgumentException("Delete error - invalid id");
 
             _repository.Delete(_repository.GetById(id));
         }
@@ -46,7 +46,7 @@ namespace CompanySolution.Service.Services.Base
         public T Get(long id)
         {
             if (id == 0)
-                throw new ArgumentException("erro get");
+                throw new ArgumentException("Get error - invalid id");
 
             return _repository.GetById(id);
         }
@@ -54,7 +54,7 @@ namespace CompanySolution.Service.Services.Base
         private void Validate(T entity, AbstractValidator<T> validator)
         {
             if (entity == null)
-                throw new Exception("erro validate");
+                throw new Exception("Validating error - null entity");
 
             validator.ValidateAndThrow(entity);
         }

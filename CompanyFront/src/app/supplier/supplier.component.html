@@ -36,14 +36,14 @@
                     <td>John Doe alimentos</td>
                     <td>
                         <button type="button" class="btn btn-sm btn-primary"
-                        (click)="openModal(excluir)">Contato</button>
+                            (click)="openModal(contato)">Contato</button>
                     </td>
                     <td>
                         <button type="button" class="btn btn-sm btn-warning" (click)="openModal(editar)">Editar</button>
                     </td>
                     <td>
                         <button type="button" class="btn btn-sm btn-danger"
-                        (click)="openModal(excluir)">Excluir</button>
+                            (click)="openModal(excluir)">Excluir</button>
                     </td>
                 </tr>
             </tbody>
@@ -79,14 +79,43 @@
         </div>
         <div class="modal-body">
             <form>
-                <div class="form-group">
-                    <label for="recipient-name" class="col-form-label">Recipient:</label>
-                    <input type="text" class="form-control" id="recipient-name">
-                </div>
-                <div class="form-group">
-                    <label for="message-text" class="col-form-label">Message:</label>
-                    <textarea class="form-control" id="message-text"></textarea>
-                </div>
+                <form>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="pessoaFisica">
+                        <label class="form-check-label" for="pessoaFisica">Pessoa Física</label>
+                    </div>
+                    <div class="form-group">
+                        <label for="nome" class="col-form-label">Nome:</label>
+                        <input type="text" class="form-control" id="nome" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cnpj" class="col-form-label">CNPJ:</label>
+                        <input maxlength="18" type="text" class="form-control" id="cnpj"
+                            onkeydown="javascript: fMasc( this, mCNPJ );" required>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col">
+                            <label for="cpf" class="col-form-label">CPF:</label>
+                            <input maxlength="14" type="text" class="form-control" id="cpf"
+                                onkeydown="javascript: fMasc( this, mCPF );" required>
+                        </div>
+                        <div class="col">
+                            <label for="rg" class="col-form-label">RG:</label>
+                            <input maxlength="12" type="text" class="form-control" id="rg"
+                                onkeydown="javascript: fMasc( this, mRG );" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="dataNascimento" class="col-form-label">Data de Nascimento:</label>
+                        <input type="date" class="form-control" id="dataNascimento">
+                    </div>
+                    <div class="form-group">
+                        <label for="empresa" class="col-form-label">Empresa:</label>
+                        <select id="ufs" name="ufs" class="form-control">
+                            <option value="a" id="empresa">matheus retardado</option>
+                        </select>
+                    </div>
+                </form>
             </form>
         </div>
         <div class="modal-footer">
@@ -106,19 +135,84 @@
         </div>
         <div class="modal-body">
             <form>
-                <div class="form-group">
-                    <label for="recipient-name" class="col-form-label">Recipient:</label>
-                    <input type="text" class="form-control" id="recipient-name">
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="pessoaFisica">
+                    <label class="form-check-label" for="pessoaFisica">Pessoa Física</label>
                 </div>
                 <div class="form-group">
-                    <label for="message-text" class="col-form-label">Message:</label>
-                    <textarea class="form-control" id="message-text"></textarea>
+                    <label for="nome" class="col-form-label">Nome:</label>
+                    <input type="text" class="form-control" id="nome" required>
+                </div>
+                <div class="form-group">
+                    <label for="cnpj" class="col-form-label">CNPJ:</label>
+                    <input maxlength="18" type="text" class="form-control" id="cnpj"
+                        onkeydown="javascript: fMasc( this, mCNPJ );" required>
+                </div>
+                <div class="form-group row">
+                    <div class="col">
+                        <label for="cpf" class="col-form-label">CPF:</label>
+                        <input maxlength="14" type="text" class="form-control" id="cpf"
+                            onkeydown="javascript: fMasc( this, mCPF );" required>
+                    </div>
+                    <div class="col">
+                        <label for="rg" class="col-form-label">RG:</label>
+                        <input maxlength="12" type="text" class="form-control" id="rg"
+                            onkeydown="javascript: fMasc( this, mRG );" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="dataNascimento" class="col-form-label">Data de Nascimento:</label>
+                    <input type="date" class="form-control" id="dataNascimento">
+                </div>
+                <div class="form-group">
+                    <label for="empresa" class="col-form-label">Empresa:</label>
+                    <select id="ufs" name="ufs" class="form-control">
+                        <option value="a" id="empresa">matheus retardado</option>
+                    </select>
                 </div>
             </form>
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-success">Finalizar criação</button>
             <button type="button" class="btn btn-secondary" (click)="modalRef.hide()">Cancelar</button>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #contato>
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">Contato - Telefones</h5>
+            <button type="button" class="close" (click)="modalRef.hide()">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>Número de Telefone</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>(47) 9622-0665</td>
+                        <td>
+                            <button type="button" class="btn btn-sm btn-danger"
+                                (click)="openModal(excluir)">Excluir</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="form-group">
+                <label for="nome" class="col-form-label">Número de Telefone:</label>
+                <input type="text" class="form-control" id="nome" required>
+            </div>
+            <button type="button" class="btn btn-success">Adicionar novo número</button>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" (click)="modalRef.hide()">Fechar</button>
         </div>
     </div>
 </ng-template>
